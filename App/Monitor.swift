@@ -55,6 +55,8 @@ final class Monitor {
         let client: OpenLogiClient
         do {
             client = try OpenLogiClient()
+        } catch .untrusted {
+            return Snapshot(state: .untrusted, devices: [], updatedAt: .now)
         } catch {
             return Snapshot(state: .notInstalled, devices: [], updatedAt: .now)
         }
@@ -70,7 +72,6 @@ final class Monitor {
         for raw in data.devices {
             let id = raw.id ?? ""
             var device = Device(
-                id: id,
                 name: raw.name ?? String(localized: "Logitech device"),
                 kind: raw.kind,
                 online: raw.online,

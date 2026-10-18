@@ -4,6 +4,8 @@
 "Get OpenLogi" = "Scarica OpenLogi";
 "OpenLogi is not running" = "OpenLogi non è in esecuzione";
 "Open OpenLogi to see your devices." = "Apri OpenLogi per vedere i tuoi dispositivi.";
+"OpenLogi could not be verified" = "Impossibile verificare OpenLogi";
+"The installed OpenLogi is not signed by its developer, so LogiBar does not run it. Reinstall it from the official site." = "L'OpenLogi installato non è firmato dal suo sviluppatore, quindi LogiBar non lo avvia. Reinstallalo dal sito ufficiale.";
 "Open OpenLogi" = "Apri OpenLogi";
 "Looking for devices…" = "Ricerca dispositivi…";
 "No Logitech devices found." = "Nessun dispositivo Logitech trovato.";

@@ -57,10 +57,18 @@ struct WidgetView: View {
         }
     }
 
+    private var unavailableText: LocalizedStringKey {
+        switch snapshot.state {
+        case .notInstalled: "OpenLogi is not installed"
+        case .untrusted: "OpenLogi could not be verified"
+        default: "Open LogiBar"
+        }
+    }
+
     private var unavailable: some View {
         VStack(spacing: 6) {
             Image(systemName: "computermouse").font(.title2).foregroundStyle(.secondary)
-            Text(snapshot.state == .notInstalled ? "OpenLogi is not installed" : "Open LogiBar")
+            Text(unavailableText)
                 .font(.caption)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
@@ -136,7 +144,7 @@ private struct BatteryRing: View {
 extension Snapshot {
     static let preview = Snapshot(
         state: .ok,
-        devices: [Device(id: "", name: "MX Master", kind: "mouse", online: true,
+        devices: [Device(name: "MX Master", kind: "mouse", online: true,
                          battery: Battery(percentage: 72, level: "good", status: "discharging"),
                          dpi: 1000, smartShift: .ratchet)],
         updatedAt: .now)

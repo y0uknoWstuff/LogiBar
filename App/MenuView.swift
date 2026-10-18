@@ -25,6 +25,12 @@ struct MenuView: View {
                    detail: "LogiBar reads your devices through OpenLogi.") {
                 NSWorkspace.shared.open(URL(string: "https://github.com/aprilnea/openlogi")!)
             } actionTitle: { Text("Get OpenLogi") }
+        case .untrusted:
+            Notice(symbol: "xmark.shield",
+                   title: "OpenLogi could not be verified",
+                   detail: "The installed OpenLogi is not signed by its developer, so LogiBar does not run it. Reinstall it from the official site.") {
+                NSWorkspace.shared.open(URL(string: "https://github.com/aprilnea/openlogi/releases")!)
+            } actionTitle: { Text("Get OpenLogi") }
         case .unavailable:
             Notice(symbol: "powerplug",
                    title: "OpenLogi is not running",

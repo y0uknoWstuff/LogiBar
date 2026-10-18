@@ -6,6 +6,8 @@ import Foundation
 struct OpenLogiClient: Sendable {
     enum Failure: Error {
         case notInstalled
+        /// Found, but not signed by OpenLogi's developer: never executed.
+        case untrusted
         case agentUnavailable
         case badOutput
     }
@@ -22,6 +24,7 @@ struct OpenLogiClient: Sendable {
         guard FileManager.default.isExecutableFile(atPath: executable.path) else {
             throw .notInstalled
         }
+        guard CodeTrust.isTrustedOpenLogi(executable) else { throw .untrusted }
         self.executable = executable
     }
 

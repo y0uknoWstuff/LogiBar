@@ -15,6 +15,11 @@ settings:
     CODE_SIGN_STYLE: Automatic
     ENABLE_HARDENED_RUNTIME: YES
     LOCALIZATION_PREFERS_STRING_CATALOGS: NO
+  configs:
+    # Development signing would add get-task-allow, letting other processes attach to the
+    # installed app. Only Debug builds need a debugger.
+    Release:
+      CODE_SIGN_INJECT_BASE_ENTITLEMENTS: NO
 targets:
   LogiBar:
     type: application

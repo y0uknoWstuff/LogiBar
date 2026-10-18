@@ -7,6 +7,8 @@ struct Snapshot: Codable, Equatable, Sendable {
         case ok
         /// OpenLogi.app is not installed.
         case notInstalled
+        /// An app claims to be OpenLogi but is not signed by its developer.
+        case untrusted
         /// Installed, but the agent is not running or not compatible.
         case unavailable
         /// The agent is still enumerating devices.
@@ -28,8 +30,6 @@ struct Snapshot: Codable, Equatable, Sendable {
 }
 
 struct Device: Codable, Equatable, Identifiable, Sendable {
-    /// OpenLogi's opaque route id. Not a stable key across reconnects.
-    var id: String
     var name: String
     var kind: String
     var online: Bool
@@ -37,8 +37,10 @@ struct Device: Codable, Equatable, Identifiable, Sendable {
     var dpi: Int?
     var smartShift: SmartShiftMode?
 
-    /// Stable enough to remember alert state between polls.
+    /// Stable enough to remember alert state between polls. OpenLogi's route id is
+    /// deliberately not kept: it embeds the receiver's serial and this file is persisted.
     var alertKey: String { "\(kind):\(name)" }
+    var id: String { alertKey }
 }
 
 struct Battery: Codable, Equatable, Sendable {
