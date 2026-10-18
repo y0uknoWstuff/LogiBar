@@ -36,9 +36,11 @@ LogiBarWidget.appex  (WidgetKit, sandboxed)
 Requires Xcode and [XcodeGen](https://github.com/yonaskolb/XcodeGen) (`brew install xcodegen`).
 
 ```sh
+cp Local.xcconfig.example Local.xcconfig   # then put your team ID in it
 xcodegen
-open LogiBar.xcodeproj
+xcodebuild -scheme LogiBar -configuration Release -derivedDataPath build -allowProvisioningUpdates build
+cp -R build/Build/Products/Release/LogiBar.app /Applications/
 ```
 
-Signing: Personal Team (free Apple ID) for local use. A paid account later enables
+Your team ID is in Xcode > Settings > Accounts. Signing: Personal Team (free Apple ID) for local use. A paid account later enables
 notarized `.dmg` distribution.

@@ -4,13 +4,15 @@ options:
   deploymentTarget:
     macOS: "14.0"
   developmentLanguage: en
+configFiles:
+  Debug: Local.xcconfig
+  Release: Local.xcconfig
 settings:
   base:
     SWIFT_VERSION: "6.0"
     MARKETING_VERSION: "0.1.0"
     CURRENT_PROJECT_VERSION: "1"
     CODE_SIGN_STYLE: Automatic
-    DEVELOPMENT_TEAM: ${LOGIBAR_TEAM}
     ENABLE_HARDENED_RUNTIME: YES
     LOCALIZATION_PREFERS_STRING_CATALOGS: NO
 targets:

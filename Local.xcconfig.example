@@ -1,0 +1,2 @@
+// Copy to Local.xcconfig and set your Apple team ID (Xcode > Settings > Accounts).
+DEVELOPMENT_TEAM = YOURTEAMID
