@@ -37,9 +37,7 @@ Requires Xcode and [XcodeGen](https://github.com/yonaskolb/XcodeGen) (`brew inst
 
 ```sh
 cp Local.xcconfig.example Local.xcconfig   # then put your team ID in it
-xcodegen
-xcodebuild -scheme LogiBar -configuration Release -derivedDataPath build -allowProvisioningUpdates build
-cp -R build/Build/Products/Release/LogiBar.app /Applications/
+tools/install.sh   # builds, installs in /Applications, restarts the app and its widget
 ```
 
 Your team ID is in Xcode > Settings > Accounts. Signing: Personal Team (free Apple ID) for local use. A paid account later enables
