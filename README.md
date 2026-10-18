@@ -42,3 +42,7 @@ tools/install.sh   # builds, installs in /Applications, restarts the app and its
 
 Your team ID is in Xcode > Settings > Accounts. Signing: Personal Team (free Apple ID) for local use. A paid account later enables
 notarized `.dmg` distribution.
+
+## License
+
+[MIT](LICENSE)
