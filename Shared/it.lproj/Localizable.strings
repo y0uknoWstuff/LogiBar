@@ -1,0 +1,42 @@
+/* Menu */
+"OpenLogi is not installed" = "OpenLogi non è installato";
+"LogiBar reads your devices through OpenLogi." = "LogiBar legge i tuoi dispositivi tramite OpenLogi.";
+"Get OpenLogi" = "Scarica OpenLogi";
+"OpenLogi is not running" = "OpenLogi non è in esecuzione";
+"Open OpenLogi to see your devices." = "Apri OpenLogi per vedere i tuoi dispositivi.";
+"Open OpenLogi" = "Apri OpenLogi";
+"Looking for devices…" = "Ricerca dispositivi…";
+"No Logitech devices found." = "Nessun dispositivo Logitech trovato.";
+"Updated %@ ago" = "Aggiornato %@ fa";
+"Settings…" = "Impostazioni…";
+"Quit LogiBar" = "Esci da LogiBar";
+"Offline" = "Non collegato";
+"%lld DPI" = "%lld DPI";
+"Free spin" = "Rotazione libera";
+"Ratchet" = "A scatti";
+"Logitech device" = "Dispositivo Logitech";
+
+/* Battery */
+"Charging" = "In carica";
+"Fully charged" = "Carico";
+"On battery" = "A batteria";
+"Critical" = "Critica";
+"Low" = "Bassa";
+"Good" = "Buona";
+"Full" = "Piena";
+
+/* Alerts */
+"%@: battery almost empty" = "%@: batteria quasi scarica";
+"%@: low battery" = "%@: batteria bassa";
+"%@ left. Charge it soon." = "Resta %@. Mettilo in carica presto.";
+
+/* Settings */
+"Low battery alert" = "Avviso batteria bassa";
+"%lld%%" = "%lld%%";
+"A second alert always fires at %lld%%." = "Un secondo avviso arriva sempre al %lld%%.";
+"Open at login" = "Apri al login";
+
+/* Widget */
+"Open LogiBar" = "Apri LogiBar";
+"Mouse battery" = "Batteria mouse";
+"Battery and status of your Logitech mouse, from OpenLogi." = "Batteria e stato del tuo mouse Logitech, da OpenLogi.";

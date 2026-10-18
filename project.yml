@@ -1,0 +1,67 @@
+name: LogiBar
+options:
+  bundleIdPrefix: io.github.y0uknowstuff
+  deploymentTarget:
+    macOS: "14.0"
+  developmentLanguage: en
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: ${LOGIBAR_TEAM}
+    ENABLE_HARDENED_RUNTIME: YES
+    LOCALIZATION_PREFERS_STRING_CATALOGS: NO
+targets:
+  LogiBar:
+    type: application
+    platform: macOS
+    sources:
+      - App
+      - Shared
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: LogiBar
+        LSUIElement: true
+        LSApplicationCategoryType: public.app-category.utilities
+        AppGroupID: $(TeamIdentifierPrefix)logibar
+        CFBundleLocalizations: [en, it]
+    entitlements:
+      path: App/LogiBar.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - $(TeamIdentifierPrefix)logibar
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.y0uknowstuff.logibar
+        PRODUCT_NAME: LogiBar
+    dependencies:
+      - target: LogiBarWidget
+  LogiBarWidget:
+    type: app-extension
+    platform: macOS
+    sources:
+      - Widget
+      - Shared
+    info:
+      path: Widget/Info.plist
+      properties:
+        CFBundleDisplayName: LogiBar
+        AppGroupID: $(TeamIdentifierPrefix)logibar
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: Widget/LogiBarWidget.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.application-groups:
+          - $(TeamIdentifierPrefix)logibar
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.y0uknowstuff.logibar.widget
+        PRODUCT_NAME: LogiBarWidget
+    dependencies:
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
