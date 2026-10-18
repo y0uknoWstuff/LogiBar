@@ -15,6 +15,8 @@ final class Monitor {
     private var settingsCache: [String: (dpi: Int?, smartShift: SmartShiftMode?)] = [:]
     private var settingsReadAt = Date.distantPast
     private var pollTask: Task<Void, Never>?
+    /// The widget may be showing an older, stale snapshot from before this launch.
+    private var hasReloadedWidget = false
 
     private static let pollInterval: Duration = .seconds(30)
     private static let settingsInterval: TimeInterval = 5 * 60
@@ -38,13 +40,15 @@ final class Monitor {
 
         let next = await fetch(includeSettings: includeSettings)
         notifier.evaluate(next)
-        guard next.devices != snapshot.devices || next.state != snapshot.state else {
-            snapshot.updatedAt = next.updatedAt
-            return
-        }
+        let changed = next.devices != snapshot.devices || next.state != snapshot.state
         snapshot = next
+        // Saved on every poll: the widget reads `updatedAt` to tell whether LogiBar is running.
         SnapshotStore.save(next)
-        WidgetCenter.shared.reloadAllTimelines()
+        // Reloading spends the widget's refresh budget, so only when something is visible.
+        if changed || !hasReloadedWidget {
+            hasReloadedWidget = true
+            WidgetCenter.shared.reloadAllTimelines()
+        }
     }
 
     private func fetch(includeSettings: Bool) async -> Snapshot {
