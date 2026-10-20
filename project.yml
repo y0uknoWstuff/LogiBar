@@ -31,6 +31,8 @@ targets:
       path: App/Info.plist
       properties:
         CFBundleDisplayName: LogiBar
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         LSUIElement: true
         LSApplicationCategoryType: public.app-category.utilities
         AppGroupID: $(TeamIdentifierPrefix)logibar
@@ -44,6 +46,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: io.github.y0uknowstuff.logibar
         PRODUCT_NAME: LogiBar
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     dependencies:
       - target: LogiBarWidget
   LogiBarWidget:
@@ -56,6 +59,8 @@ targets:
       path: Widget/Info.plist
       properties:
         CFBundleDisplayName: LogiBar
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         AppGroupID: $(TeamIdentifierPrefix)logibar
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
