@@ -1,5 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
-  <rect x="402" y="322" width="220" height="380" rx="110" fill="#FFFFFF"/>
-  <path d="M512 322 V448" stroke="#0A3D62" stroke-opacity="0.35" stroke-width="10"/>
-  <rect x="496" y="372" width="32" height="70" rx="16" fill="#0A3D62"/>
+  <!-- Original MX Master, top view, traced from a photo (coordinates in photo pixels). -->
+  <g transform="translate(512 512) scale(0.4) translate(-525 -838)">
+    <path d="M556 282 C640 290 760 310 830 335 C880 420 905 560 905 720 C905 900 880 1080 830 1200
+             C780 1320 690 1392 590 1395 C480 1395 400 1370 330 1335 C260 1320 190 1290 165 1230
+             C145 1120 140 960 160 880 C175 815 215 790 270 785 C262 650 270 480 300 380
+             C380 330 480 300 556 282 Z" fill="#FFFFFF"/>
+    <!-- Buttons, slightly darker than the palm rest. -->
+    <path d="M556 282 C640 290 760 310 830 335 C875 410 895 560 900 830 L700 745 L515 745 L280 835
+             C268 650 272 480 300 380 C380 330 480 300 556 282 Z" fill="#DCE3EA"/>
+    <g fill="none" stroke="#0A3D62" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M280 835 L515 745 L700 745 L900 830" stroke-opacity="0.35" stroke-width="18"/>
+      <path d="M556 282 V372 M515 372 V745 M680 372 V745 M515 372 H680" stroke-opacity="0.3" stroke-width="14"/>
+      <!-- Rim between the palm and the thumb rest. -->
+      <path d="M285 800 C270 950 300 1120 385 1235" stroke-opacity="0.35" stroke-width="18"/>
+    </g>
+    <!-- Metal scroll wheel and the mode-shift button. -->
+    <rect x="530" y="395" width="110" height="195" rx="30" fill="#5C6B7A"/>
+    <rect x="552" y="410" width="66" height="165" rx="24" fill="#B8C2CC"/>
+    <rect x="575" y="668" width="53" height="56" rx="12" fill="#0A3D62" fill-opacity="0.75"/>
+  </g>
 </svg>
