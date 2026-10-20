@@ -6,6 +6,16 @@ Notification Center widget, and with a low-battery alert. Data comes from
 
 First target: the original **MX Master** (HID++ 2.0, battery feature `0x1000`, Unifying receiver).
 
+## Install
+
+1. Install and open [OpenLogi](https://github.com/aprilnea/openlogi/releases).
+2. Download `LogiBar-<version>.dmg` from [Releases](https://github.com/y0uknoWstuff/LogiBar/releases),
+   open it and drag LogiBar to Applications. The app is signed with Developer ID and notarized by Apple.
+3. Open LogiBar: the mouse appears in the menu bar. To add the widget, right-click the desktop >
+   Edit Widgets > LogiBar.
+
+Requires macOS 14 or later.
+
 ## How it works
 
 ```
@@ -40,8 +50,11 @@ cp Local.xcconfig.example Local.xcconfig   # then put your team ID in it
 tools/install.sh   # builds, installs in /Applications, restarts the app and its widget
 ```
 
-Your team ID is in Xcode > Settings > Accounts. Signing: Personal Team (free Apple ID) for local use. A paid account later enables
-notarized `.dmg` distribution.
+Your team ID is in Xcode > Settings > Accounts.
+
+To build a notarized `dist/LogiBar-<version>.dmg`: a Developer ID Application certificate, notary
+credentials stored with `xcrun notarytool store-credentials logibar --apple-id <id> --team-id <team>`,
+then `tools/release.sh`.
 
 ## License
 
