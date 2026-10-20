@@ -43,7 +43,7 @@
 
 ## What you need
 
-| | |
+| You need | Details |
 |---|---|
 | **Mac** | macOS 14 Sonoma or later, Apple silicon or Intel |
 | **[OpenLogi](https://github.com/aprilnea/openlogi)** | Installed and running. It's the free, open-source app that talks to Logitech devices; LogiBar reads the battery through it. |
